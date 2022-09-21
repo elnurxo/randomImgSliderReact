@@ -10,37 +10,38 @@ export default function Slider() {
 
   //Next Button Click Handler
   const toNextSlide = () => {
-    if (slideIndex !== 5) {
+    if (slideIndex !== 5)
       setSlideIndex(slideIndex + 1);
-    } else if (slideIndex === 5) {
+    else if (slideIndex === 5)
       setSlideIndex(1);
-    }
+    
     clearTimeout(slideTime.current);
   };
 
   //Previous Button Click Handler
   const toPrevSlide = () => {
-    if (slideIndex !== 1) {
+    if (slideIndex !== 1)
       setSlideIndex(slideIndex - 1);
-    } else if (slideIndex === 1) {
+    else if (slideIndex === 1)
       setSlideIndex(5);
-    }
+
     clearTimeout(slideTime.current);
   };
+  
   //Change slide in every 3 seconds
   useEffect(() => {
     slideTime.current =  setTimeout(() => {
-        if (slideIndex !== 5) {
+        if (slideIndex !== 5)
             setSlideIndex(slideIndex + 1);
-        } else if (slideIndex === 5) {
+        else if (slideIndex === 5)
             setSlideIndex(1);
-        }
     }, 3000);
   }, [slideIndex]);
  
   return (
-    // Slides
+    // Sliders-Wrapper
     <div className="slider-wrapper">
+        
       <div className="sliders">
       {Array.from({ length: 5 }).map((item, index) => {
         return (
